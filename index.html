@@ -8,10 +8,10 @@
 <title>Y2KSt0re · Admin</title>
 <style>
 :root{
-  --bg:#070707;--s1:#0f0f0f;--s2:#161616;--s3:#1e1e1e;
-  --b:rgba(255,255,255,0.07);--bhi:rgba(255,255,255,0.14);
-  --text:#efefef;--sub:#555;--faint:rgba(255,255,255,0.03);
-  --red:#ff4545;--green:#3ddc84;--amber:#f5a623;--r:18px;--rs:12px;
+  --bg:#070707;--s1:#0f0f0f;--s2:#161616;--s3:#1e1e1e;
+  --b:rgba(255,255,255,0.07);--bhi:rgba(255,255,255,0.14);
+  --text:#efefef;--sub:#555;--faint:rgba(255,255,255,0.03);
+  --red:#ff4545;--green:#3ddc84;--amber:#f5a623;--r:18px;--rs:12px;
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
@@ -121,61 +121,61 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
 
 <!-- AUTH MODAL -->
 <div class="overlay" id="authOverlay">
-  <div class="modal">
-    <img class="modal-logo" src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" alt="">
-    <h2>Y2KSt0re</h2>
-    <p class="modal-sub">// sign in or create account</p>
-    <div class="modal-tabs">
-      <div class="mtab active" id="tabLogin" onclick="switchTab('login')">Sign In</div>
-      <div class="mtab" id="tabSignup" onclick="switchTab('signup')">Sign Up</div>
-    </div>
-    <div id="loginForm">
-      <div class="field"><label>Username</label><input type="text" id="loginUser" placeholder="your username" autocomplete="username"></div>
-      <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"></div>
-      <button class="btn" id="loginBtn" onclick="doLogin()">Sign In</button>
-    </div>
-    <div id="signupForm" style="display:none">
-      <div class="field"><label>Username</label><input type="text" id="signupUser" placeholder="choose a username" autocomplete="username"></div>
-      <div class="field"><label>Email</label><input type="email" id="signupEmail" placeholder="your@email.com" autocomplete="email"></div>
-      <div class="field"><label>Password</label><input type="password" id="signupPass" placeholder="min 6 characters" autocomplete="new-password"></div>
-      <button class="btn" id="signupBtn" onclick="doSignup()">Create Account</button>
-    </div>
-    <div class="err" id="authErr"></div>
-  </div>
+  <div class="modal">
+    <img class="modal-logo" src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" alt="">
+    <h2>Y2KSt0re</h2>
+    <p class="modal-sub">// sign in or create account</p>
+    <div class="modal-tabs">
+      <div class="mtab active" id="tabLogin" onclick="switchTab('login')">Sign In</div>
+      <div class="mtab" id="tabSignup" onclick="switchTab('signup')">Sign Up</div>
+    </div>
+    <div id="loginForm">
+      <div class="field"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com" autocomplete="email"></div>
+      <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"></div>
+      <button class="btn" id="loginBtn" onclick="doLogin()">Sign In</button>
+    </div>
+    <div id="signupForm" style="display:none">
+      <div class="field"><label>Username</label><input type="text" id="signupUser" placeholder="choose a username" autocomplete="username"></div>
+      <div class="field"><label>Email</label><input type="email" id="signupEmail" placeholder="your@email.com" autocomplete="email"></div>
+      <div class="field"><label>Password</label><input type="password" id="signupPass" placeholder="min 6 characters" autocomplete="new-password"></div>
+      <button class="btn" id="signupBtn" onclick="doSignup()">Create Account</button>
+    </div>
+    <div class="err" id="authErr"></div>
+  </div>
 </div>
 
 <!-- MAIN APP -->
 <div class="hdr">
-  <div class="hdr-left">
-    <div class="logo"></div>
-    <span class="brand">Y2KSt0re</span>
-  </div>
-  <div class="hdr-right" id="hdrRight"></div>
+  <div class="hdr-left">
+    <div class="logo"></div>
+    <span class="brand">Y2KSt0re</span>
+  </div>
+  <div class="hdr-right" id="hdrRight"></div>
 </div>
 
 <!-- ANNOUNCEMENT BANNER (shown to all logged-in users) -->
 <div id="announcementBanner">
-  <span class="banner-icon">📢</span>
-  <div class="banner-content">
-    <div class="banner-title" id="bannerTitle"></div>
-    <div class="banner-body" id="bannerBody"></div>
-  </div>
-  <button class="banner-close" onclick="dismissBanner()" title="Dismiss">✕</button>
+  <span class="banner-icon">📢</span>
+  <div class="banner-content">
+    <div class="banner-title" id="bannerTitle"></div>
+    <div class="banner-body" id="bannerBody"></div>
+  </div>
+  <button class="banner-close" onclick="dismissBanner()" title="Dismiss">✕</button>
 </div>
 
 <div class="scroll-area" id="mainContent">
-  <div class="loading-full">
-    <div class="spinner"></div>
-    <span>loading...</span>
-  </div>
+  <div class="loading-full">
+    <div class="spinner"></div>
+    <span>loading...</span>
+  </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-const SUPABASE_URL      = 'https://ccizxexnlxbmcmnbjvbk.supabase.co'; // ← REPLACE
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjaXp4ZXhubHhibWNtbmJqdmJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1Nzk1ODMsImV4cCI6MjA5MTE1NTU4M30.f_b4hP76ix0lmbgdDha3ZX9MAFwcXYw01HvE2G_5_dw';               // ← REPLACE
-const ADMIN_USERNAME    = 'Y2KEXPLOITS';                       // ← your admin username
+const SUPABASE_URL      = 'https://ccizxexnlxbmcmnbjvbk.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjaXp4ZXhubHhibWNtbmJqdmJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU1Nzk1ODMsImV4cCI6MjA5MTE1NTU4M30.f_b4hP76ix0lmbgdDha3ZX9MAFwcXYw01HvE2G_5_dw';
+const ADMIN_USERNAME    = 'Y2KEXPLOITS';
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -188,440 +188,436 @@ let currentUsername = null;
 let announcements = [];
 let activeBanner = null;
 let bannerChannel = null;
-let dismissedBannerId = null; // track which banner this user dismissed in this session
+let dismissedBannerId = null;
 
 // ── INIT ────────────────────────────────────────────
 async function init() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (session) {
-    await loadUser(session.user);
-  } else {
-    showAuthOverlay();
-    renderHdr();
-  }
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    await loadUser(session.user);
+  } else {
+    showAuthOverlay();
+    renderHdr();
+  }
 
-  sb.auth.onAuthStateChange(async (event, session) => {
-    if (event === 'SIGNED_IN' && session) {
-      await loadUser(session.user);
-      hideAuthOverlay();
-    } else if (event === 'SIGNED_OUT') {
-      currentUser = null;
-      currentUsername = null;
-      hideBanner();
-      unsubscribeBannerChannel();
-      showAuthOverlay();
-      renderHdr();
-      renderLocked();
-    }
-  });
+  sb.auth.onAuthStateChange(async (event, session) => {
+    if (event === 'SIGNED_IN' && session) {
+      await loadUser(session.user);
+      hideAuthOverlay();
+    } else if (event === 'SIGNED_OUT') {
+      currentUser = null;
+      currentUsername = null;
+      hideBanner();
+      unsubscribeBannerChannel();
+      showAuthOverlay();
+      renderHdr();
+      renderLocked();
+    }
+  });
 }
 
 async function loadUser(user) {
-  currentUser = user;
-  currentUsername = user.user_metadata?.username || user.email?.split('@')[0] || 'user';
-  renderHdr();
-  await loadBanner();
-  subscribeBannerChannel();
+  currentUser = user;
+  currentUsername = user.user_metadata?.username || user.email?.split('@')[0] || 'user';
+  renderHdr();
+  await loadBanner();
+  subscribeBannerChannel();
 
-  if (isAdmin()) {
-    await loadAdminData();
-    renderAdmin();
-  } else {
-    renderHome();
-  }
+  if (isAdmin()) {
+    await loadAdminData();
+    renderAdmin();
+  } else {
+    renderHome();
+  }
 }
 
 function isAdmin() {
-  return currentUsername?.toUpperCase() === ADMIN_USERNAME.toUpperCase();
+  return currentUsername?.toUpperCase() === ADMIN_USERNAME.toUpperCase();
 }
 
 // ── BANNER ───────────────────────────────────────────
 async function loadBanner() {
-  try {
-    const { data } = await sb.from('y2k_banner')
-      .select('*').order('created_at', { ascending: false }).limit(1).maybeSingle();
-    activeBanner = data || null;
-    renderBanner();
-  } catch(e) {
-    activeBanner = null;
-  }
+  try {
+    const { data } = await sb.from('y2k_banner')
+      .select('*').order('created_at', { ascending: false }).limit(1).maybeSingle();
+    activeBanner = data || null;
+    renderBanner();
+  } catch(e) {
+    activeBanner = null;
+  }
 }
 
 function renderBanner() {
-  const el = document.getElementById('announcementBanner');
-  if (!activeBanner || activeBanner.id === dismissedBannerId) {
-    el.classList.remove('show');
-    return;
-  }
-  document.getElementById('bannerTitle').textContent = activeBanner.title;
-  document.getElementById('bannerBody').textContent = activeBanner.body;
-  el.classList.add('show');
+  const el = document.getElementById('announcementBanner');
+  if (!activeBanner || activeBanner.id === dismissedBannerId) {
+    el.classList.remove('show');
+    return;
+  }
+  document.getElementById('bannerTitle').textContent = activeBanner.title;
+  document.getElementById('bannerBody').textContent = activeBanner.body;
+  el.classList.add('show');
 }
 
 function dismissBanner() {
-  // Only dismiss locally for this session (not deleted from DB — only admin can delete)
-  if (activeBanner) dismissedBannerId = activeBanner.id;
-  document.getElementById('announcementBanner').classList.remove('show');
+  if (activeBanner) dismissedBannerId = activeBanner.id;
+  document.getElementById('announcementBanner').classList.remove('show');
 }
 
 function hideBanner() {
-  document.getElementById('announcementBanner').classList.remove('show');
+  document.getElementById('announcementBanner').classList.remove('show');
 }
 
-// Realtime: watch for banner changes so logged-in users see new banners instantly
 function subscribeBannerChannel() {
-  if (bannerChannel) return;
-  bannerChannel = sb.channel('y2k_banner_changes')
-    .on('postgres_changes', { event: '*', schema: 'public', table: 'y2k_banner' }, async () => {
-      await loadBanner();
-      if (isAdmin()) {
-        await loadAdminData();
-        renderAdmin();
-      }
-    })
-    .subscribe();
+  if (bannerChannel) return;
+  bannerChannel = sb.channel('y2k_banner_changes')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'y2k_banner' }, async () => {
+      await loadBanner();
+      if (isAdmin()) {
+        await loadAdminData();
+        renderAdmin();
+      }
+    })
+    .subscribe();
 }
 
 function unsubscribeBannerChannel() {
-  if (bannerChannel) {
-    sb.removeChannel(bannerChannel);
-    bannerChannel = null;
-  }
+  if (bannerChannel) {
+    sb.removeChannel(bannerChannel);
+    bannerChannel = null;
+  }
 }
 
 // ── SUPABASE DATA ────────────────────────────────────
 async function loadAdminData() {
-  try {
-    const { data: ann } = await sb.from('y2k_announcements')
-      .select('*').order('sent_at', { ascending: false }).limit(10);
-    announcements = ann || [];
+  try {
+    const { data: ann } = await sb.from('y2k_announcements')
+      .select('*').order('sent_at', { ascending: false }).limit(10);
+    announcements = ann || [];
 
-    const { data: banner } = await sb.from('y2k_banner')
-      .select('*').order('created_at', { ascending: false }).limit(1).maybeSingle();
-    activeBanner = banner || null;
-  } catch(e) {
-    announcements = [];
-    activeBanner = null;
-  }
+    const { data: banner } = await sb.from('y2k_banner')
+      .select('*').order('created_at', { ascending: false }).limit(1).maybeSingle();
+    activeBanner = banner || null;
+  } catch(e) {
+    announcements = [];
+    activeBanner = null;
+  }
 }
 
 // ── AUTH ────────────────────────────────────────────
 function showAuthOverlay() { document.getElementById('authOverlay').classList.add('show'); }
 function hideAuthOverlay() { document.getElementById('authOverlay').classList.remove('show'); }
 function switchTab(tab) {
-  document.getElementById('loginForm').style.display  = tab === 'login'  ? 'block' : 'none';
-  document.getElementById('signupForm').style.display = tab === 'signup' ? 'block' : 'none';
-  document.getElementById('tabLogin').classList.toggle('active',  tab === 'login');
-  document.getElementById('tabSignup').classList.toggle('active', tab === 'signup');
-  document.getElementById('authErr').textContent = '';
+  document.getElementById('loginForm').style.display  = tab === 'login'  ? 'block' : 'none';
+  document.getElementById('signupForm').style.display = tab === 'signup' ? 'block' : 'none';
+  document.getElementById('tabLogin').classList.toggle('active',  tab === 'login');
+  document.getElementById('tabSignup').classList.toggle('active', tab === 'signup');
+  document.getElementById('authErr').textContent = '';
 }
 
 async function doLogin() {
-  const username = document.getElementById('loginUser').value.trim();
-  const password = document.getElementById('loginPass').value;
-  const btn = document.getElementById('loginBtn');
-  const err = document.getElementById('authErr');
-  if (!username || !password) { err.textContent = 'fill in all fields'; return; }
-  btn.innerHTML = '<span class="spinner"></span>';
-  btn.disabled = true;
-  err.textContent = '';
-  const email = username.toLowerCase() + '@y2kstore.local';
-  const { error } = await sb.auth.signInWithPassword({ email, password });
-  if (error) {
-    err.textContent = error.message.includes('Invalid') ? 'wrong username or password' : error.message;
-    btn.textContent = 'Sign In';
-    btn.disabled = false;
-  }
+  const email    = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPass').value;
+  const btn = document.getElementById('loginBtn');
+  const err = document.getElementById('authErr');
+  if (!email || !password) { err.textContent = 'fill in all fields'; return; }
+  btn.innerHTML = '<span class="spinner"></span>';
+  btn.disabled = true;
+  err.textContent = '';
+  const { error } = await sb.auth.signInWithPassword({ email, password });
+  if (error) {
+    err.textContent = error.message.includes('Invalid') ? 'wrong email or password' : error.message;
+    btn.textContent = 'Sign In';
+    btn.disabled = false;
+  }
 }
 
 async function doSignup() {
-  const username = document.getElementById('signupUser').value.trim();
-  const email    = document.getElementById('signupEmail').value.trim();
-  const password = document.getElementById('signupPass').value;
-  const btn = document.getElementById('signupBtn');
-  const err = document.getElementById('authErr');
+  const username = document.getElementById('signupUser').value.trim();
+  const email    = document.getElementById('signupEmail').value.trim();
+  const password = document.getElementById('signupPass').value;
+  const btn = document.getElementById('signupBtn');
+  const err = document.getElementById('authErr');
 
-  if (!username || !email || !password) { err.textContent = 'fill in all fields'; return; }
-  if (password.length < 6) { err.textContent = 'password must be at least 6 characters'; return; }
-  if (!/^[a-zA-Z0-9_]+$/.test(username)) { err.textContent = 'username: letters, numbers, underscores only'; return; }
+  if (!username || !email || !password) { err.textContent = 'fill in all fields'; return; }
+  if (password.length < 6) { err.textContent = 'password must be at least 6 characters'; return; }
+  if (!/^[a-zA-Z0-9_]+$/.test(username)) { err.textContent = 'username: letters, numbers, underscores only'; return; }
 
-  btn.innerHTML = '<span class="spinner"></span>';
-  btn.disabled = true;
-  err.textContent = '';
+  btn.innerHTML = '<span class="spinner"></span>';
+  btn.disabled = true;
+  err.textContent = '';
 
-  const fakeEmail = username.toLowerCase() + '@y2kstore.local';
-  const { data, error } = await sb.auth.signUp({
-    email: fakeEmail,
-    password,
-    options: { data: { username, real_email: email } }
-  });
+  const { data, error } = await sb.auth.signUp({
+    email,
+    password,
+    options: { data: { username } }
+  });
 
-  if (error) {
-    err.textContent = error.message.includes('already') ? 'username already taken' : error.message;
-    btn.textContent = 'Create Account';
-    btn.disabled = false;
-    return;
-  }
+  if (error) {
+    err.textContent = error.message.includes('already') ? 'email already registered' : error.message;
+    btn.textContent = 'Create Account';
+    btn.disabled = false;
+    return;
+  }
 
-  if (data.user) {
-    await sb.from('y2k_profiles').upsert({
-      id: data.user.id, username, real_email: email
-    }, { onConflict: 'id' });
-  }
+  if (data.user) {
+    await sb.from('y2k_profiles').upsert({
+      id: data.user.id, username, real_email: email
+    }, { onConflict: 'id' });
+  }
 
-  err.style.color = 'var(--green)';
-  err.textContent = '✓ account created! signing you in...';
-  setTimeout(async () => {
-    await sb.auth.signInWithPassword({ email: fakeEmail, password });
-  }, 800);
+  // If email confirmation is disabled in Supabase, sign in immediately
+  if (data.session) {
+    err.style.color = 'var(--green)';
+    err.textContent = '✓ account created! signing you in...';
+  } else {
+    // Email confirmation required
+    err.style.color = 'var(--green)';
+    err.textContent = '✓ check your email to confirm your account!';
+    btn.textContent = 'Create Account';
+    btn.disabled = false;
+  }
 }
 
 async function doLogout() {
-  await sb.auth.signOut();
+  await sb.auth.signOut();
 }
 
 // ── HEADER ──────────────────────────────────────────
 function renderHdr() {
-  const el = document.getElementById('hdrRight');
-  if (!currentUser) {
-    el.innerHTML = `<button class="login-btn" onclick="showAuthOverlay()">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Sign In
-    </button>`;
-  } else {
-    const initials = (currentUsername || 'U').slice(0,2).toUpperCase();
-    el.innerHTML = `
-      ${isAdmin() ? '<span class="admin-badge">⚡ ADMIN</span>' : ''}
-      <div class="user-pill" onclick="doLogout()">
-        <div class="user-avatar">${initials}</div>
-        ${currentUsername}
-        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:.4"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-      </div>`;
-  }
+  const el = document.getElementById('hdrRight');
+  if (!currentUser) {
+    el.innerHTML = `<button class="login-btn" onclick="showAuthOverlay()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      Sign In
+    </button>`;
+  } else {
+    const initials = (currentUsername || 'U').slice(0,2).toUpperCase();
+    el.innerHTML = `
+      ${isAdmin() ? '<span class="admin-badge">⚡ ADMIN</span>' : ''}
+      <div class="user-pill" onclick="doLogout()">
+        <div class="user-avatar">${initials}</div>
+        ${currentUsername}
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:.4"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      </div>`;
+  }
 }
 
 // ── HOME SCREEN ──────────────────────────────────────
 function renderHome() {
-  document.getElementById('mainContent').innerHTML = `
-    <div class="home-screen">
-      <h2>Hey, ${currentUsername} 👋</h2>
-      <p>// welcome to Y2KSt0re</p>
-      <div style="margin-top:24px;background:var(--s1);border:1px solid var(--b);border-radius:var(--r);padding:18px;">
-        <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;">Available Apps</h3>
-        <div class="tag-list">
-          <span class="tag online">eSign · live</span>
-          <span class="tag online">KSign · live</span>
-          <span class="tag online">Scarlet · live</span>
-          <span class="tag online">Delta · live</span>
-          <span class="tag online">SkibX · live</span>
-        </div>
-      </div>
-    </div>`;
+  document.getElementById('mainContent').innerHTML = `
+    <div class="home-screen">
+      <h2>Hey, ${currentUsername} 👋</h2>
+      <p>// welcome to Y2KSt0re</p>
+      <div style="margin-top:24px;background:var(--s1);border:1px solid var(--b);border-radius:var(--r);padding:18px;">
+        <h3 style="font-size:14px;font-weight:700;margin-bottom:14px;">Available Apps</h3>
+        <div class="tag-list">
+          <span class="tag online">eSign · live</span>
+          <span class="tag online">KSign · live</span>
+          <span class="tag online">Scarlet · live</span>
+          <span class="tag online">Delta · live</span>
+          <span class="tag online">SkibX · live</span>
+        </div>
+      </div>
+    </div>`;
 }
 
 // ── LOCKED SCREEN ────────────────────────────────────
 function renderLocked() {
-  document.getElementById('mainContent').innerHTML = `
-    <div class="locked-screen">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-      </svg>
-      <h3>Access Denied</h3>
-      <p>This panel is restricted to admin accounts only.</p>
-    </div>`;
+  document.getElementById('mainContent').innerHTML = `
+    <div class="locked-screen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <h3>Access Denied</h3>
+      <p>This panel is restricted to admin accounts only.</p>
+    </div>`;
 }
 
 // ── ADMIN PANEL ──────────────────────────────────────
 function renderAdmin() {
-  const recentHtml = announcements.length === 0
-    ? `<div class="empty-state">no messages sent yet</div>`
-    : announcements.map(a => `
-        <div class="announce-item">
-          <div class="announce-item-content">
-            <div class="a-title">${esc(a.title)}</div>
-            <div class="a-body">${esc(a.body)}</div>
-            <div class="a-meta">${new Date(a.sent_at).toLocaleString()}</div>
-          </div>
-          <button class="del-btn" onclick="deleteAnnouncement('${a.id}')" title="Delete">✕</button>
-        </div>`).join('');
+  const recentHtml = announcements.length === 0
+    ? `<div class="empty-state">no messages sent yet</div>`
+    : announcements.map(a => `
+        <div class="announce-item">
+          <div class="announce-item-content">
+            <div class="a-title">${esc(a.title)}</div>
+            <div class="a-body">${esc(a.body)}</div>
+            <div class="a-meta">${new Date(a.sent_at).toLocaleString()}</div>
+          </div>
+          <button class="del-btn" onclick="deleteAnnouncement('${a.id}')" title="Delete">✕</button>
+        </div>`).join('');
 
-  const bannerPreviewHtml = activeBanner
-    ? `<div class="live-banner-preview">
-        <div class="lbp-label">▶ currently live</div>
-        <div class="lbp-title">${esc(activeBanner.title)}</div>
-        <div class="lbp-body">${esc(activeBanner.body)}</div>
-      </div>
-      <button class="btn btn-red" style="margin-top:10px" onclick="deleteBanner()">Remove Banner</button>`
-    : `<div class="no-banner">no banner active right now</div>`;
+  const bannerPreviewHtml = activeBanner
+    ? `<div class="live-banner-preview">
+        <div class="lbp-label">▶ currently live</div>
+        <div class="lbp-title">${esc(activeBanner.title)}</div>
+        <div class="lbp-body">${esc(activeBanner.body)}</div>
+      </div>
+      <button class="btn btn-red" style="margin-top:10px" onclick="deleteBanner()">Remove Banner</button>`
+    : `<div class="no-banner">no banner active right now</div>`;
 
-  document.getElementById('mainContent').innerHTML = `
-    <div class="admin-hero">
-      <div class="admin-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-      </div>
-      <div>
-        <h2>Admin Panel</h2>
-        <p>// welcome back, ${currentUsername}</p>
-      </div>
-    </div>
+  document.getElementById('mainContent').innerHTML = `
+    <div class="admin-hero">
+      <div class="admin-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <div>
+        <h2>Admin Panel</h2>
+        <p>// welcome back, ${currentUsername}</p>
+      </div>
+    </div>
 
-    <div class="section-label">// overview</div>
-    <div style="margin:0 12px 10px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
-      <div class="stat-box">
-        <div class="stat-num" style="color:${activeBanner ? 'var(--amber)' : 'var(--sub)'}">${activeBanner ? '1' : '0'}</div>
-        <div class="stat-label">active banner</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num" style="color:var(--amber)">${announcements.length}</div>
-        <div class="stat-label">messages sent</div>
-      </div>
-    </div>
+    <div class="section-label">// overview</div>
+    <div style="margin:0 12px 10px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <div class="stat-box">
+        <div class="stat-num" style="color:${activeBanner ? 'var(--amber)' : 'var(--sub)'}">${activeBanner ? '1' : '0'}</div>
+        <div class="stat-label">active banner</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num" style="color:var(--amber)">${announcements.length}</div>
+        <div class="stat-label">messages sent</div>
+      </div>
+    </div>
 
-    <div class="section-label">// send announcement banner</div>
-    <div class="admin-card">
-      <h3>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
-        Send Banner Message
-      </h3>
-      <p style="font-size:11px;color:var(--sub);font-family:'JetBrains Mono',monospace;margin-bottom:12px;">Shows at the top of the app for all users. Replaces any existing banner.</p>
-      <div class="field" style="margin-bottom:10px"><label>Title</label><input type="text" id="bannerTitleIn" placeholder="e.g. New App Available!" maxlength="80"></div>
-      <div class="field" style="margin-bottom:10px"><label>Message</label><textarea class="textarea-field" id="bannerBodyIn" placeholder="Your message to all users..." maxlength="300"></textarea></div>
-      <button class="btn btn-amber" id="sendBannerBtn" onclick="sendBanner()">📢 Send Banner</button>
+    <div class="section-label">// send announcement banner</div>
+    <div class="admin-card">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
+        Send Banner Message
+      </h3>
+      <p style="font-size:11px;color:var(--sub);font-family:'JetBrains Mono',monospace;margin-bottom:12px;">Shows at the top of the app for all users. Replaces any existing banner.</p>
+      <div class="field" style="margin-bottom:10px"><label>Title</label><input type="text" id="bannerTitleIn" placeholder="e.g. New App Available!" maxlength="80"></div>
+      <div class="field" style="margin-bottom:10px"><label>Message</label><textarea class="textarea-field" id="bannerBodyIn" placeholder="Your message to all users..." maxlength="300"></textarea></div>
+      <button class="btn btn-amber" id="sendBannerBtn" onclick="sendBanner()">📢 Send Banner</button>
 
-      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--b);">
-        <div style="font-size:10px;color:var(--sub);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;">Current Banner</div>
-        ${bannerPreviewHtml}
-      </div>
-    </div>
+      <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--b);">
+        <div style="font-size:10px;color:var(--sub);font-family:'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;">Current Banner</div>
+        ${bannerPreviewHtml}
+      </div>
+    </div>
 
-    <div class="section-label">// manage apps</div>
-    <div class="admin-card">
-      <h3>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        App Store Control
-      </h3>
-      <div class="row2">
-        <button class="btn btn-sec" onclick="showToast('app editor coming soon!','success')">+ Add App</button>
-        <button class="btn btn-sec" onclick="showToast('Opening app manager...','success')">Manage IPAs</button>
-      </div>
-      <div class="tag-list">
-        <span class="tag online">eSign · live</span>
-        <span class="tag online">KSign · live</span>
-        <span class="tag online">Scarlet · live</span>
-        <span class="tag online">Delta · live</span>
-        <span class="tag online">SkibX · live</span>
-      </div>
-    </div>
+    <div class="section-label">// manage apps</div>
+    <div class="admin-card">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        App Store Control
+      </h3>
+      <div class="row2">
+        <button class="btn btn-sec" onclick="showToast('app editor coming soon!','success')">+ Add App</button>
+        <button class="btn btn-sec" onclick="showToast('Opening app manager...','success')">Manage IPAs</button>
+      </div>
+      <div class="tag-list">
+        <span class="tag online">eSign · live</span>
+        <span class="tag online">KSign · live</span>
+        <span class="tag online">Scarlet · live</span>
+        <span class="tag online">Delta · live</span>
+        <span class="tag online">SkibX · live</span>
+      </div>
+    </div>
 
-    <div class="section-label">// message history</div>
-    <div class="admin-card">
-      <h3>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Sent History
-      </h3>
-      <div class="announce-list">${recentHtml}</div>
-    </div>
+    <div class="section-label">// message history</div>
+    <div class="admin-card">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Sent History
+      </h3>
+      <div class="announce-list">${recentHtml}</div>
+    </div>
 
-    <div class="section-label">// danger zone</div>
-    <div class="admin-card">
-      <h3 style="color:var(--red)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        Danger Zone
-      </h3>
-      <div class="row2">
-        <button class="btn btn-red" onclick="clearAnnouncements()">Clear Logs</button>
-        <button class="btn btn-red" onclick="deleteBanner()">Remove Banner</button>
-      </div>
-    </div>
-    <div style="height:30px"></div>`;
+    <div class="section-label">// danger zone</div>
+    <div class="admin-card">
+      <h3 style="color:var(--red)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Danger Zone
+      </h3>
+      <div class="row2">
+        <button class="btn btn-red" onclick="clearAnnouncements()">Clear Logs</button>
+        <button class="btn btn-red" onclick="deleteBanner()">Remove Banner</button>
+      </div>
+    </div>
+    <div style="height:30px"></div>`;
 }
 
 // ── SEND BANNER ──────────────────────────────────────
 async function sendBanner() {
-  const title = document.getElementById('bannerTitleIn').value.trim();
-  const body  = document.getElementById('bannerBodyIn').value.trim();
-  if (!title || !body) { showToast('fill in title and message', 'error'); return; }
+  const title = document.getElementById('bannerTitleIn').value.trim();
+  const body  = document.getElementById('bannerBodyIn').value.trim();
+  if (!title || !body) { showToast('fill in title and message', 'error'); return; }
 
-  const btn = document.getElementById('sendBannerBtn');
-  btn.innerHTML = '<span class="spinner" style="border-top-color:var(--amber)"></span>';
-  btn.disabled = true;
+  const btn = document.getElementById('sendBannerBtn');
+  btn.innerHTML = '<span class="spinner" style="border-top-color:var(--amber)"></span>';
+  btn.disabled = true;
 
-  try {
-    // Delete any existing banner first (only one active at a time)
-    await sb.from('y2k_banner').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-
-    // Insert new banner
-    const { error } = await sb.from('y2k_banner').insert({ title, body });
-    if (error) throw error;
-
-    // Log to history
-    await sb.from('y2k_announcements').insert({ title, body });
-
-    document.getElementById('bannerTitleIn').value = '';
-    document.getElementById('bannerBodyIn').value = '';
-    showToast('banner sent to all users!', 'success');
-    await loadAdminData();
-    renderAdmin();
-    renderBanner();
-  } catch(e) {
-    showToast('error: ' + e.message, 'error');
-    btn.textContent = '📢 Send Banner';
-    btn.disabled = false;
-  }
+  try {
+    await sb.from('y2k_banner').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+    const { error } = await sb.from('y2k_banner').insert({ title, body });
+    if (error) throw error;
+    await sb.from('y2k_announcements').insert({ title, body });
+    document.getElementById('bannerTitleIn').value = '';
+    document.getElementById('bannerBodyIn').value = '';
+    showToast('banner sent to all users!', 'success');
+    await loadAdminData();
+    renderAdmin();
+    renderBanner();
+  } catch(e) {
+    showToast('error: ' + e.message, 'error');
+    btn.textContent = '📢 Send Banner';
+    btn.disabled = false;
+  }
 }
 
 // ── DELETE BANNER ────────────────────────────────────
 async function deleteBanner() {
-  if (!activeBanner) { showToast('no active banner', 'error'); return; }
-  try {
-    await sb.from('y2k_banner').delete().eq('id', activeBanner.id);
-    activeBanner = null;
-    hideBanner();
-    showToast('banner removed', 'success');
-    await loadAdminData();
-    renderAdmin();
-  } catch(e) {
-    showToast('error: ' + e.message, 'error');
-  }
+  if (!activeBanner) { showToast('no active banner', 'error'); return; }
+  try {
+    await sb.from('y2k_banner').delete().eq('id', activeBanner.id);
+    activeBanner = null;
+    hideBanner();
+    showToast('banner removed', 'success');
+    await loadAdminData();
+    renderAdmin();
+  } catch(e) {
+    showToast('error: ' + e.message, 'error');
+  }
 }
 
 // ── DELETE SINGLE ANNOUNCEMENT ───────────────────────
 async function deleteAnnouncement(id) {
-  try {
-    await sb.from('y2k_announcements').delete().eq('id', id);
-    announcements = announcements.filter(a => a.id !== id);
-    showToast('message deleted', 'success');
-    renderAdmin();
-  } catch(e) {
-    showToast('error: ' + e.message, 'error');
-  }
+  try {
+    await sb.from('y2k_announcements').delete().eq('id', id);
+    announcements = announcements.filter(a => a.id !== id);
+    showToast('message deleted', 'success');
+    renderAdmin();
+  } catch(e) {
+    showToast('error: ' + e.message, 'error');
+  }
 }
 
 // ── DANGER ZONE ──────────────────────────────────────
 async function clearAnnouncements() {
-  if (!confirm('Clear all message logs?')) return;
-  await sb.from('y2k_announcements').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-  announcements = [];
-  showToast('logs cleared', 'success');
-  renderAdmin();
+  if (!confirm('Clear all message logs?')) return;
+  await sb.from('y2k_announcements').delete().neq('id', '00000000-0000-0000-0000-000000000000');
+  announcements = [];
+  showToast('logs cleared', 'success');
+  renderAdmin();
 }
 
 // ── UTILS ────────────────────────────────────────────
 function esc(str) {
-  return String(str)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 let toastTimer;
 function showToast(msg, type = 'success') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast show ' + type;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
 init();
@@ -629,60 +625,57 @@ init();
 
 <!--
 ═══════════════════════════════════════════════════════════════════
-  SUPABASE SQL — RUN THIS in your Supabase SQL Editor
-  supabase.com → your project → SQL Editor → New Query → paste → Run
+  SUPABASE SQL — RUN THIS in your Supabase SQL Editor
+  supabase.com → your project → SQL Editor → New Query → paste → Run
 ═══════════════════════════════════════════════════════════════════
 
 -- User profiles table
 create table if not exists y2k_profiles (
-  id uuid references auth.users on delete cascade primary key,
-  username text unique not null,
-  real_email text,
-  created_at timestamptz default now()
+  id uuid references auth.users on delete cascade primary key,
+  username text unique not null,
+  real_email text,
+  created_at timestamptz default now()
 );
 alter table y2k_profiles enable row level security;
 create policy "users can read own profile" on y2k_profiles
-  for select using (auth.uid() = id);
+  for select using (auth.uid() = id);
 create policy "users can insert own profile" on y2k_profiles
-  for insert with check (auth.uid() = id);
+  for insert with check (auth.uid() = id);
 create policy "users can update own profile" on y2k_profiles
-  for update using (auth.uid() = id);
+  for update using (auth.uid() = id);
 create policy "auth users can read all profiles" on y2k_profiles
-  for select using (auth.role() = 'authenticated');
+  for select using (auth.role() = 'authenticated');
 
 -- Announcements history table
 create table if not exists y2k_announcements (
-  id uuid default gen_random_uuid() primary key,
-  title text not null,
-  body text not null,
-  sent_at timestamptz default now()
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  body text not null,
+  sent_at timestamptz default now()
 );
 alter table y2k_announcements enable row level security;
 create policy "auth users can manage announcements" on y2k_announcements
-  for all using (auth.role() = 'authenticated');
+  for all using (auth.role() = 'authenticated');
 
 -- Active banner table (only 1 row active at a time)
 create table if not exists y2k_banner (
-  id uuid default gen_random_uuid() primary key,
-  title text not null,
-  body text not null,
-  created_at timestamptz default now()
+  id uuid default gen_random_uuid() primary key,
+  title text not null,
+  body text not null,
+  created_at timestamptz default now()
 );
 alter table y2k_banner enable row level security;
--- All logged-in users can READ the banner
 create policy "auth users can read banner" on y2k_banner
-  for select using (auth.role() = 'authenticated');
--- All logged-in users can INSERT/UPDATE/DELETE (admin-only enforcement is in the app)
+  for select using (auth.role() = 'authenticated');
 create policy "auth users can manage banner" on y2k_banner
-  for all using (auth.role() = 'authenticated');
+  for all using (auth.role() = 'authenticated');
 
 -- Enable Realtime on y2k_banner so users see new banners instantly
--- Run this AFTER creating the table:
 alter publication supabase_realtime add table y2k_banner;
 
 ═══════════════════════════════════════════════════════════════════
-  THAT'S IT. No edge functions, no VAPID keys, no service workers.
-  Just the 3 tables above and you're done.
+  THAT'S IT. No edge functions, no VAPID keys, no service workers.
+  Just the 3 tables above and you're done.
 ═══════════════════════════════════════════════════════════════════
 -->
 </body>
