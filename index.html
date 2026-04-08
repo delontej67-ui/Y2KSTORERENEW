@@ -47,7 +47,6 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
 
 .status-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(61,220,132,0.15);animation:statusPulse 2.4s cubic-bezier(.4,0,.6,1) infinite;flex-shrink:0;margin-left:2px;}
 @keyframes statusPulse{0%,100%{box-shadow:0 0 0 3px rgba(61,220,132,0.15)}50%{box-shadow:0 0 0 6px rgba(61,220,132,0.06)}}
-
 .live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 2px rgba(61,220,132,0.2);animation:statusPulse 2.4s cubic-bezier(.4,0,.6,1) infinite;flex-shrink:0;display:inline-block;vertical-align:middle;margin-right:4px;}
 
 .scroll-area{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:96px;}
@@ -78,7 +77,6 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
 .card:hover{border-color:var(--bhi);box-shadow:0 10px 40px rgba(0,0,0,.6),0 2px 8px rgba(0,0,0,.3);transform:translateY(-3px);}
 .card:hover::after{opacity:1}
 .card:active{transform:scale(.975) translateY(0);box-shadow:0 2px 12px rgba(0,0,0,.4)}
-
 .card-inner{display:flex;align-items:center;gap:13px;padding:15px}
 .card-icon{width:54px;height:54px;border-radius:14px;overflow:hidden;border:1px solid var(--b);flex-shrink:0;background:var(--s2);transition:transform .35s cubic-bezier(.34,1.56,.64,1),border-color .25s ease;}
 .card:hover .card-icon{transform:scale(1.1) rotate(3deg);border-color:var(--bhi)}
@@ -97,6 +95,34 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
 .btn-sec{background:var(--s2);color:var(--text);border:1px solid var(--b)}
 .btn-sec::after{display:none}
 .btn-sec:hover{background:var(--s3);border-color:var(--bhi);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+
+/* SIGNER */
+.signer-wrap{padding:16px 12px}
+.signer-card{background:var(--s1);border:1px solid var(--b);border-radius:var(--r);padding:20px;position:relative;}
+.signer-card::before{content:'';position:absolute;top:0;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.09),transparent);pointer-events:none;}
+.signer-title{font-size:17px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px;}
+.signer-sub{font-size:10px;color:var(--sub);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;margin-bottom:20px;}
+.signer-label{font-size:11px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;font-family:'JetBrains Mono',monospace;}
+.signer-file-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
+.signer-choose{background:var(--s2);color:var(--text);border:1px solid var(--b);border-radius:var(--rs);font-size:11px;font-weight:700;padding:9px 14px;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:.04em;text-transform:uppercase;transition:all .22s cubic-bezier(.22,1,.36,1);white-space:nowrap;flex-shrink:0;}
+.signer-choose:hover{border-color:var(--bhi);background:var(--s3)}
+.signer-choose:active{transform:scale(.94)}
+.signer-fname{flex:1;background:var(--s3);border:1px solid var(--b);border-radius:var(--rs);padding:9px 12px;font-size:11px;color:var(--sub);font-family:'JetBrains Mono',monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.signer-pw{width:100%;background:var(--s2);border:1px solid var(--b);border-radius:var(--rs);padding:10px 13px;font-size:13px;color:var(--text);font-family:'Syne',sans-serif;margin-bottom:14px;outline:none;transition:border-color .2s;}
+.signer-pw:focus{border-color:var(--bhi)}
+.signer-pw::placeholder{color:var(--sub)}
+.signer-submit{background:#fff;color:#070707;border:none;padding:13px 16px;border-radius:var(--rs);font-size:13px;font-weight:800;cursor:pointer;width:100%;font-family:'Syne',sans-serif;letter-spacing:.05em;text-transform:uppercase;transition:all .25s cubic-bezier(.34,1.56,.64,1);margin-top:6px;position:relative;overflow:hidden;}
+.signer-submit::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,transparent 55%);pointer-events:none}
+.signer-submit:hover{background:#ebebeb;transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,255,255,.16)}
+.signer-submit:active{transform:scale(.94);transition-duration:.1s}
+.signer-submit:disabled{background:var(--s2)!important;color:var(--sub)!important;cursor:not-allowed!important;transform:none!important;box-shadow:none!important}
+.signer-result{margin-top:16px;padding:14px;border-radius:var(--rs);}
+.signer-result.ok{background:rgba(61,220,132,.05);border:1px solid rgba(61,220,132,.18);}
+.signer-result.err{background:rgba(255,69,69,.05);border:1px solid rgba(255,69,69,.18);}
+.signer-result-title{font-size:13px;font-weight:800;margin-bottom:3px;}
+.signer-result.ok .signer-result-title{color:var(--green)}
+.signer-result.err .signer-result-title{color:var(--red)}
+.signer-result p{font-size:11px;color:var(--sub);font-family:'JetBrains Mono',monospace;line-height:1.5;}
 
 .nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.94);backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:6px 8px;box-shadow:0 16px 48px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.03) inset;display:flex;gap:2px;z-index:500;animation:navIn .65s cubic-bezier(.34,1.56,.64,1) 2.15s both;}
 @keyframes navIn{from{opacity:0;transform:translateX(-50%) translateY(24px) scale(.9)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
@@ -155,245 +181,44 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
         <div class="subtab" onclick="sw(4,this)">SkibX</div>
       </div>
 
-      <!-- ESIGN TAB -->
       <div id="c0" class="cnt active">
         <div style="padding:14px 12px 0">
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">eSign</div>
-                <div class="card-dev"><span class="live-dot"></span>XL Axiata</div>
-                <div class="card-tag">★ 4.0 · 1M installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'https://api.khoindvn.io.vn/JnAsbd')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">NEW eSign</div>
-                <div class="card-dev"><span class="live-dot"></span>XL Axiata</div>
-                <div class="card-tag">★ 4.5 · 3.0M installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/download/c16c893a-0079-4293-bd7e-6fbfdf683030.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">eSign 5.0.2</div>
-                <div class="card-dev"><span class="live-dot"></span>XL Axiata</div>
-                <div class="card-tag">★ 4.5 · 3.1M installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/Esign_5.0.2_XL.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">NEW eSign</div>
-                <div class="card-dev"><span class="live-dot"></span>BOC Limited 1</div>
-                <div class="card-tag">★ 4.2 · 104K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/esign_boc1.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">NEW eSign</div>
-                <div class="card-dev"><span class="live-dot"></span>BOC Limited 2</div>
-                <div class="card-tag">★ 4.2 · 93K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/esign_boc2.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">NEW eSign</div>
-                <div class="card-dev"><span class="live-dot"></span>BOC Limited 4</div>
-                <div class="card-tag">★ 4.2 · 99K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/esign_boc3.plist')">Install</button>
-            </div>
-          </div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div><div class="card-info"><div class="card-name">eSign</div><div class="card-dev"><span class="live-dot"></span>XL Axiata</div><div class="card-tag">★ 4.0 · 1M installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'https://api.khoindvn.io.vn/JnAsbd')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div><div class="card-info"><div class="card-name">NEW eSign</div><div class="card-dev"><span class="live-dot"></span>XL Axiata</div><div class="card-tag">★ 4.5 · 3.0M installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/download/c16c893a-0079-4293-bd7e-6fbfdf683030.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div><div class="card-info"><div class="card-name">eSign 5.0.2</div><div class="card-dev"><span class="live-dot"></span>XL Axiata</div><div class="card-tag">★ 4.5 · 3.1M installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/Esign_5.0.2_XL.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div><div class="card-info"><div class="card-name">NEW eSign</div><div class="card-dev"><span class="live-dot"></span>BOC Limited 1</div><div class="card-tag">★ 4.2 · 104K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/esign_boc1.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div><div class="card-info"><div class="card-name">NEW eSign</div><div class="card-dev"><span class="live-dot"></span>BOC Limited 2</div><div class="card-tag">★ 4.2 · 93K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/esign_boc2.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/ptoEbcym.png" loading="lazy"></div><div class="card-info"><div class="card-name">NEW eSign</div><div class="card-dev"><span class="live-dot"></span>BOC Limited 4</div><div class="card-tag">★ 4.2 · 99K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/esign_boc3.plist')">Install</button></div></div>
         </div>
       </div>
 
-      <!-- KSIGN TAB -->
       <div id="c1" class="cnt">
         <div style="padding:14px 12px 0">
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/347Q9VHm.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">KSign</div>
-                <div class="card-dev"><span class="live-dot"></span>XL Axiata</div>
-                <div class="card-tag">★ 4.5 · 1.0M installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/Ksign_XL.plist')">Install</button>
-            </div>
-          </div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/347Q9VHm.png" loading="lazy"></div><div class="card-info"><div class="card-name">KSign</div><div class="card-dev"><span class="live-dot"></span>XL Axiata</div><div class="card-tag">★ 4.5 · 1.0M installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/Ksign_XL.plist')">Install</button></div></div>
         </div>
       </div>
 
-      <!-- SCARLET TAB -->
       <div id="c2" class="cnt">
         <div style="padding:14px 12px 0">
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/5XhsTq9m.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Scarlet V2</div>
-                <div class="card-dev"><span class="live-dot"></span>XL Axiata</div>
-                <div class="card-tag">★ 4.8 · 3.0M installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/ScarletApps_XL.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/5XhsTq9m.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Scarlet V2</div>
-                <div class="card-dev">National Oilwell</div>
-                <div class="card-tag">★ 4.0 · 10K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/Scarlet_NOV2.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Scarlet V1</div>
-                <div class="card-dev">National Oilwell</div>
-                <div class="card-tag">★ 4.5 · 1.7M installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/ScarletApps_NOV.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Scarlet</div>
-                <div class="card-dev">Tianjin University</div>
-                <div class="card-tag">★ 4.2 · 211K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_Tianjin.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Scarlet</div>
-                <div class="card-dev">Education Certs</div>
-                <div class="card-tag">★ 4.0 · 11K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_Education.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Scarlet</div>
-                <div class="card-dev">Viet Telecom</div>
-                <div class="card-tag">★ 4.3 · 121K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_Viettel.plist')">Install</button>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Scarlet</div>
-                <div class="card-dev">HDFC</div>
-                <div class="card-tag">★ 4.0 · 11K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_HDFC.plist')">Install</button>
-            </div>
-          </div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/5XhsTq9m.png" loading="lazy"></div><div class="card-info"><div class="card-name">Scarlet V2</div><div class="card-dev"><span class="live-dot"></span>XL Axiata</div><div class="card-tag">★ 4.8 · 3.0M installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/ScarletApps_XL.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/5XhsTq9m.png" loading="lazy"></div><div class="card-info"><div class="card-name">Scarlet V2</div><div class="card-dev">National Oilwell</div><div class="card-tag">★ 4.0 · 10K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/Scarlet_NOV2.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div><div class="card-info"><div class="card-name">Scarlet V1</div><div class="card-dev">National Oilwell</div><div class="card-tag">★ 4.5 · 1.7M installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.net/post/ScarletApps_NOV.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div><div class="card-info"><div class="card-name">Scarlet</div><div class="card-dev">Tianjin University</div><div class="card-tag">★ 4.2 · 211K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_Tianjin.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div><div class="card-info"><div class="card-name">Scarlet</div><div class="card-dev">Education Certs</div><div class="card-tag">★ 4.0 · 11K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_Education.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div><div class="card-info"><div class="card-name">Scarlet</div><div class="card-dev">Viet Telecom</div><div class="card-tag">★ 4.3 · 121K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_Viettel.plist')">Install</button></div></div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://i.imgur.com/KuehszZm.png" loading="lazy"></div><div class="card-info"><div class="card-name">Scarlet</div><div class="card-dev">HDFC</div><div class="card-tag">★ 4.0 · 11K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://applejr.cloud/manual/signed/Scarlet_HDFC.plist')">Install</button></div></div>
         </div>
       </div>
 
-      <!-- DELTA TAB -->
       <div id="c3" class="cnt">
         <div style="padding:14px 12px 0">
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVlhfNU3wXUrTRLWO-Hf0mSJ4jXkJ8yY2xwp6_epImxA&s=10" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">Delta</div>
-                <div class="card-dev">Beijing Zhizhangyi Inc.</div>
-                <div class="card-tag">★ 5.0 · 1.5M installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" style="margin-bottom:7px" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist')">Direct Install</button>
-              <div class="card-action-row">
-                <button class="btn btn-sec" style="flex:1;font-size:11px" onclick="goTo(this,'https://gloopup.net/Delta/ios/')">IPA · iOS</button>
-                <button class="btn btn-sec" style="flex:1;font-size:11px" onclick="goTo(this,'https://gloopup.net/Delta/android/')">APK · Android</button>
-              </div>
-            </div>
-          </div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVlhfNU3wXUrTRLWO-Hf0mSJ4jXkJ8yY2xwp6_epImxA&s=10" loading="lazy"></div><div class="card-info"><div class="card-name">Delta</div><div class="card-dev">Beijing Zhizhangyi Inc.</div><div class="card-tag">★ 5.0 · 1.5M installs</div></div></div><div class="card-action"><button class="btn" style="margin-bottom:7px" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://delta.bz/manifest.plist')">Direct Install</button><div class="card-action-row"><button class="btn btn-sec" style="flex:1;font-size:11px" onclick="goTo(this,'https://gloopup.net/Delta/ios/')">IPA · iOS</button><button class="btn btn-sec" style="flex:1;font-size:11px" onclick="goTo(this,'https://gloopup.net/Delta/android/')">APK · Android</button></div></div></div>
         </div>
       </div>
 
-      <!-- SKIBX TAB -->
       <div id="c4" class="cnt">
         <div style="padding:14px 12px 0">
-          <div class="card">
-            <div class="card-inner">
-              <div class="card-icon"><img src="https://gcdnb.pbrd.co/images/OvldDBrdK8MC.png?o=1" loading="lazy"></div>
-              <div class="card-info">
-                <div class="card-name">SkibX</div>
-                <div class="card-dev">Shanghai Shentong Metro Group</div>
-                <div class="card-tag">★ 4.5 · 600K installs</div>
-              </div>
-            </div>
-            <div class="card-action">
-              <button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://skibx.com/ota.plist')">Install</button>
-            </div>
-          </div>
+          <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://gcdnb.pbrd.co/images/OvldDBrdK8MC.png?o=1" loading="lazy"></div><div class="card-info"><div class="card-name">SkibX</div><div class="card-dev">Shanghai Shentong Metro Group</div><div class="card-tag">★ 4.5 · 600K installs</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'itms-services://?action=download-manifest&url=https://skibx.com/ota.plist')">Install</button></div></div>
         </div>
       </div>
 
@@ -408,19 +233,7 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
     <div id="certsPage" class="page">
       <div class="section-hero"><h2>Certificates</h2><p>// signing certs</p></div>
       <div class="list">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-icon"><img src="https://gcdnb.pbrd.co/images/v2OqCk2IUEpY.jpg?o=1" loading="lazy"></div>
-            <div class="card-info">
-              <div class="card-name">XL AXIATA, PT TBK</div>
-              <div class="card-dev">XL AXIATA, PT TBK</div>
-              <div class="card-tag" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15);color:#fff">Signing Certificate</div>
-            </div>
-          </div>
-          <div class="card-action">
-            <button class="btn" onclick="goTo(this,'https://github.com/royilkom-alt/cert/raw/refs/heads/main/XL%20AXIATA,%20PT%20TBK.zip')">Download</button>
-          </div>
-        </div>
+        <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://gcdnb.pbrd.co/images/v2OqCk2IUEpY.jpg?o=1" loading="lazy"></div><div class="card-info"><div class="card-name">XL AXIATA, PT TBK</div><div class="card-dev">XL AXIATA, PT TBK</div><div class="card-tag" style="background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.15);color:#fff">Signing Certificate</div></div></div><div class="card-action"><button class="btn" onclick="goTo(this,'https://github.com/royilkom-alt/cert/raw/refs/heads/main/XL%20AXIATA,%20PT%20TBK.zip')">Download</button></div></div>
       </div>
       <div class="credits-strip">
         Made by <a href="https://www.tiktok.com/@y2kexploits" target="_blank">@y2kexploits</a>
@@ -433,27 +246,9 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
     <div id="scriptsPage" class="page">
       <div class="section-hero"><h2>Scripts</h2><p>// copy &amp; run in executor</p></div>
       <div class="list">
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-icon"><img src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" loading="lazy"></div>
-            <div class="card-info"><div class="card-name">MM2 Script</div><div class="card-dev">Murder Mystery 2</div><div class="card-tag">Y2KSt0re Script</div></div>
-          </div>
-          <div class="card-action"><button class="btn" id="btn1" onclick="copyScript('btn1',0)">Copy Loadstring</button></div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-icon"><img src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" loading="lazy"></div>
-            <div class="card-info"><div class="card-name">Speed Script</div><div class="card-dev">Legends of Speed</div><div class="card-tag">Y2KSt0re Script</div></div>
-          </div>
-          <div class="card-action"><button class="btn" id="btn2" onclick="copyScript('btn2',1)">Copy Loadstring</button></div>
-        </div>
-        <div class="card">
-          <div class="card-inner">
-            <div class="card-icon"><img src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" loading="lazy"></div>
-            <div class="card-info"><div class="card-name">Modded Steal A Brainrot</div><div class="card-dev">Steal A Brainrot</div><div class="card-tag">Y2KSt0re Script</div></div>
-          </div>
-          <div class="card-action"><button class="btn" id="btn3" onclick="copyScript('btn3',2)">Copy Loadstring</button></div>
-        </div>
+        <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" loading="lazy"></div><div class="card-info"><div class="card-name">MM2 Script</div><div class="card-dev">Murder Mystery 2</div><div class="card-tag">Y2KSt0re Script</div></div></div><div class="card-action"><button class="btn" id="btn1" onclick="copyScript('btn1',0)">Copy Loadstring</button></div></div>
+        <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" loading="lazy"></div><div class="card-info"><div class="card-name">Speed Script</div><div class="card-dev">Legends of Speed</div><div class="card-tag">Y2KSt0re Script</div></div></div><div class="card-action"><button class="btn" id="btn2" onclick="copyScript('btn2',1)">Copy Loadstring</button></div></div>
+        <div class="card"><div class="card-inner"><div class="card-icon"><img src="https://gcdnb.pbrd.co/images/exK2Oo2sSHma.jpg?o=1" loading="lazy"></div><div class="card-info"><div class="card-name">Modded Steal A Brainrot</div><div class="card-dev">Steal A Brainrot</div><div class="card-tag">Y2KSt0re Script</div></div></div><div class="card-action"><button class="btn" id="btn3" onclick="copyScript('btn3',2)">Copy Loadstring</button></div></div>
       </div>
       <div class="credits-strip">
         Made by <a href="https://www.tiktok.com/@y2kexploits" target="_blank">@y2kexploits</a>
@@ -462,14 +257,34 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
       </div>
     </div>
 
-    <!-- IPA SIGNER PAGE -->
+    <!-- SIGNER PAGE -->
     <div id="signerPage" class="page">
-      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 24px 48px;text-align:center;gap:14px;">
-        <div style="font-size:44px;line-height:1;animation:spIn .6s cubic-bezier(.34,1.56,.64,1) both;">🔧</div>
-        <div style="font-size:22px;font-weight:800;letter-spacing:-.5px;margin-top:4px;">Closed</div>
-        <div style="font-size:11px;color:var(--sub);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;line-height:1.6;">Currently fixing a bug<br>Check back soon</div>
-        <div style="width:40px;height:1px;background:var(--b);margin-top:4px;"></div>
-        <div style="font-size:10px;color:#333;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;">// signer v2.0</div>
+      <div class="section-hero"><h2>IPA Signer</h2><p>// sign with your own cert · deleted after</p></div>
+      <div class="signer-wrap">
+        <div class="signer-card">
+          <div class="signer-title">IPA Signer v2.0</div>
+          <div class="signer-sub">Files deleted immediately after signing · nothing stored</div>
+
+          <div class="signer-label">IPA File *</div>
+          <div class="signer-file-row">
+            <button class="signer-choose" onclick="document.getElementById('s_ipa').click()">Choose</button>
+            <div class="signer-fname" id="s_ipa_name">No file chosen</div>
+            <input type="file" id="s_ipa" accept=".ipa" style="display:none">
+          </div>
+
+          <div class="signer-label">ZIP Cert (.p12 + .mobileprovision) *</div>
+          <div class="signer-file-row">
+            <button class="signer-choose" onclick="document.getElementById('s_zip').click()">Choose</button>
+            <div class="signer-fname" id="s_zip_name">No file chosen</div>
+            <input type="file" id="s_zip" accept=".zip" style="display:none">
+          </div>
+
+          <div class="signer-label">P12 Password *</div>
+          <input class="signer-pw" type="password" id="s_pw" placeholder="Enter P12 password">
+
+          <button class="signer-submit" id="s_submit" onclick="signerSubmit()">Sign &amp; Download</button>
+          <div id="s_result"></div>
+        </div>
       </div>
       <div class="credits-strip">
         Made by <a href="https://www.tiktok.com/@y2kexploits" target="_blank">@y2kexploits</a>
@@ -525,6 +340,66 @@ function goTo(btn,url){
   btn.style.transition='transform .12s cubic-bezier(.34,1.56,.64,1)';
   btn.style.transform='scale(.9)';
   setTimeout(function(){btn.style.transform='';setTimeout(function(){window.location.href=url;},80);},130);
+}
+
+document.getElementById('s_ipa').addEventListener('change',function(){
+  document.getElementById('s_ipa_name').textContent=this.files[0]?this.files[0].name:'No file chosen';
+});
+document.getElementById('s_zip').addEventListener('change',function(){
+  document.getElementById('s_zip_name').textContent=this.files[0]?this.files[0].name:'No file chosen';
+});
+
+async function signerSubmit(){
+  var ipa=document.getElementById('s_ipa').files[0];
+  var zip=document.getElementById('s_zip').files[0];
+  var pw=document.getElementById('s_pw').value;
+  var resultEl=document.getElementById('s_result');
+
+  if(!ipa||!zip||!pw){
+    resultEl.innerHTML='<div class="signer-result err"><div class="signer-result-title">Missing Fields</div><p>Please select an IPA, ZIP cert and enter your password.</p></div>';
+    return;
+  }
+
+  var btn=document.getElementById('s_submit');
+  btn.textContent='Signing...';
+  btn.disabled=true;
+  resultEl.innerHTML='';
+
+  try{
+    var fd=new FormData();
+    fd.append('ipa',ipa);
+    fd.append('certzip',zip);
+    fd.append('p12pass',pw);
+
+    var res=await fetch('https://ipa-signer-backend-pisp.onrender.com/sign',{
+      method:'POST',
+      body:fd
+    });
+
+    if(!res.ok){
+      var err=await res.json().catch(function(){return{error:'Unknown error'};});
+      resultEl.innerHTML='<div class="signer-result err"><div class="signer-result-title">Sign Failed</div><p>'+(err.error||'Something went wrong.')+'</p></div>';
+      btn.textContent='Sign & Download';
+      btn.disabled=false;
+      return;
+    }
+
+    var blob=await res.blob();
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');
+    a.href=url;
+    a.download='signed.ipa';
+    a.click();
+
+    resultEl.innerHTML='<div class="signer-result ok"><div class="signer-result-title">✓ Done</div><p>Your signed IPA is downloading.</p></div>';
+    btn.textContent='Sign & Download';
+    btn.disabled=false;
+
+  }catch(e){
+    resultEl.innerHTML='<div class="signer-result err"><div class="signer-result-title">Error</div><p>Could not reach the signing server. Try again.</p></div>';
+    btn.textContent='Sign & Download';
+    btn.disabled=false;
+  }
 }
 
 var Y2K_SCRIPTS=[
