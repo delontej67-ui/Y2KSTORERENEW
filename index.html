@@ -89,7 +89,6 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
 .card-tag{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--sub);background:var(--faint);border:1px solid var(--b);border-radius:20px;padding:2px 8px;font-family:'JetBrains Mono',monospace}
 .card-action{padding:0 15px 15px}
 .card-action-row{display:flex;gap:7px}
-.card-unavail{opacity:.4;pointer-events:none;filter:grayscale(.65)}
 
 .btn{background:#fff;color:#070707;border:none;padding:10px 16px;border-radius:var(--rs);font-size:12px;font-weight:700;cursor:pointer;width:100%;font-family:'Syne',sans-serif;letter-spacing:.04em;text-transform:uppercase;transition:all .25s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;}
 .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,transparent 55%);pointer-events:none}
@@ -98,37 +97,6 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
 .btn-sec{background:var(--s2);color:var(--text);border:1px solid var(--b)}
 .btn-sec::after{display:none}
 .btn-sec:hover{background:var(--s3);border-color:var(--bhi);color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.4)}
-.btn-dis{background:var(--s2)!important;color:var(--sub)!important;cursor:not-allowed!important;border:1px solid var(--b)!important;transform:none!important;box-shadow:none!important}
-
-/* IPA SIGNER STYLES */
-.signer-wrap{padding:16px 12px}
-.signer-card{background:var(--s1);border:1px solid var(--b);border-radius:var(--r);padding:20px;position:relative;}
-.signer-card::before{content:'';position:absolute;top:0;left:14px;right:14px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.09),transparent);pointer-events:none;}
-.signer-title{font-size:17px;font-weight:800;letter-spacing:-.4px;margin-bottom:4px;}
-.signer-sub{font-size:10px;color:var(--sub);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;margin-bottom:20px;}
-.signer-label{font-size:11px;font-weight:700;color:var(--sub);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px;font-family:'JetBrains Mono',monospace;}
-.signer-file-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;}
-.signer-choose{background:var(--s2);color:var(--text);border:1px solid var(--b);border-radius:var(--rs);font-size:11px;font-weight:700;padding:9px 14px;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:.04em;text-transform:uppercase;transition:all .22s cubic-bezier(.22,1,.36,1);white-space:nowrap;flex-shrink:0;}
-.signer-choose:hover{border-color:var(--bhi);background:var(--s3)}
-.signer-choose:active{transform:scale(.94)}
-.signer-fname{flex:1;background:var(--s3);border:1px solid var(--b);border-radius:var(--rs);padding:9px 12px;font-size:11px;color:var(--sub);font-family:'JetBrains Mono',monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.signer-pw{width:100%;background:var(--s2);border:1px solid var(--b);border-radius:var(--rs);padding:10px 13px;font-size:13px;color:var(--text);font-family:'Syne',sans-serif;margin-bottom:14px;outline:none;transition:border-color .2s;}
-.signer-pw:focus{border-color:var(--bhi)}
-.signer-pw::placeholder{color:var(--sub)}
-.signer-check-row{display:flex;align-items:flex-start;gap:9px;margin-bottom:12px;padding:11px 13px;background:var(--faint);border:1px solid var(--b);border-radius:var(--rs);}
-.signer-check-row input[type=checkbox]{width:15px;height:15px;accent-color:#fff;margin-top:1px;flex-shrink:0;cursor:pointer;}
-.signer-check-row label{font-size:11px;color:var(--sub);line-height:1.5;font-family:'JetBrains Mono',monospace;cursor:pointer;}
-.signer-submit{background:#fff;color:#070707;border:none;padding:13px 16px;border-radius:var(--rs);font-size:13px;font-weight:800;cursor:pointer;width:100%;font-family:'Syne',sans-serif;letter-spacing:.05em;text-transform:uppercase;transition:all .25s cubic-bezier(.34,1.56,.64,1);margin-top:6px;position:relative;overflow:hidden;}
-.signer-submit::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,transparent 55%);pointer-events:none}
-.signer-submit:hover{background:#ebebeb;transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,255,255,.16)}
-.signer-submit:active{transform:scale(.94);transition-duration:.1s}
-.signer-submit:disabled{background:var(--s2)!important;color:var(--sub)!important;cursor:not-allowed!important;transform:none!important;box-shadow:none!important}
-.signer-divider{height:1px;background:var(--b);margin:18px 0;}
-.signer-result{margin-top:16px;padding:16px;background:rgba(61,220,132,.05);border:1px solid rgba(61,220,132,.18);border-radius:var(--rs);}
-.signer-result-title{font-size:13px;font-weight:800;color:var(--green);margin-bottom:12px;letter-spacing:.02em;}
-.signer-result-btns{display:flex;gap:8px;}
-.signer-result-btns a{flex:1;text-decoration:none;}
-.signer-result-btns .btn{font-size:11px;padding:10px 8px;}
 
 .nav{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);background:rgba(10,10,10,.94);backdrop-filter:blur(32px);border:1px solid rgba(255,255,255,.1);border-radius:60px;padding:6px 8px;box-shadow:0 16px 48px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.03) inset;display:flex;gap:2px;z-index:500;animation:navIn .65s cubic-bezier(.34,1.56,.64,1) 2.15s both;}
 @keyframes navIn{from{opacity:0;transform:translateX(-50%) translateY(24px) scale(.9)}to{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
@@ -496,50 +464,12 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);font-s
 
     <!-- IPA SIGNER PAGE -->
     <div id="signerPage" class="page">
-      <div class="section-hero"><h2>Y2Ks IPA Signer</h2><p>// sign your ipa with your own cert</p></div>
-      <div class="signer-wrap">
-        <div class="signer-card">
-          <div class="signer-title">IPA Signer v2.0</div>
-          <div class="signer-sub">Dylibs auto-injected on sign · Max 200MB</div>
-
-          <div class="signer-label">IPA File *</div>
-          <div class="signer-file-row">
-            <button class="signer-choose" onclick="document.getElementById('s_ipa').click()">Choose</button>
-            <div class="signer-fname" id="s_ipa_name">No file chosen</div>
-            <input type="file" id="s_ipa" accept=".ipa" style="display:none">
-          </div>
-
-          <div class="signer-label">MobileProvision *</div>
-          <div class="signer-file-row">
-            <button class="signer-choose" onclick="document.getElementById('s_prov').click()">Choose</button>
-            <div class="signer-fname" id="s_prov_name">No file chosen</div>
-            <input type="file" id="s_prov" accept=".mobileprovision" style="display:none">
-          </div>
-
-          <div class="signer-label">P12 Certificate *</div>
-          <div class="signer-file-row">
-            <button class="signer-choose" onclick="document.getElementById('s_p12').click()">Choose</button>
-            <div class="signer-fname" id="s_p12_name">No file chosen</div>
-            <input type="file" id="s_p12" accept=".p12" style="display:none">
-          </div>
-
-          <div class="signer-label">P12 Password *</div>
-          <input class="signer-pw" type="password" id="s_pw" placeholder="Enter P12 password">
-
-          <div class="signer-divider"></div>
-
-          <div class="signer-check-row">
-            <input type="checkbox" id="s_ck1">
-            <label for="s_ck1">Inject SideloadKeychainFix.dylib — only if app is crashing. Don't inject into ESign, Feather or GBox.</label>
-          </div>
-          <div class="signer-check-row">
-            <input type="checkbox" id="s_ck2">
-            <label for="s_ck2">Inject SideloadKeychainFix + WidgetExtensionFix.dylib — fixes Widget &amp; Extension. Don't inject into ESign, Feather or GBox.</label>
-          </div>
-
-          <button class="signer-submit" id="s_submit" onclick="signerSubmit()">Upload &amp; Sign</button>
-          <div id="s_result"></div>
-        </div>
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:72px 24px 48px;text-align:center;gap:14px;">
+        <div style="font-size:44px;line-height:1;animation:spIn .6s cubic-bezier(.34,1.56,.64,1) both;">🔧</div>
+        <div style="font-size:22px;font-weight:800;letter-spacing:-.5px;margin-top:4px;">Closed</div>
+        <div style="font-size:11px;color:var(--sub);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;line-height:1.6;">Currently fixing a bug<br>Check back soon</div>
+        <div style="width:40px;height:1px;background:var(--b);margin-top:4px;"></div>
+        <div style="font-size:10px;color:#333;font-family:'JetBrains Mono',monospace;letter-spacing:.06em;">// signer v2.0</div>
       </div>
       <div class="credits-strip">
         Made by <a href="https://www.tiktok.com/@y2kexploits" target="_blank">@y2kexploits</a>
@@ -595,50 +525,6 @@ function goTo(btn,url){
   btn.style.transition='transform .12s cubic-bezier(.34,1.56,.64,1)';
   btn.style.transform='scale(.9)';
   setTimeout(function(){btn.style.transform='';setTimeout(function(){window.location.href=url;},80);},130);
-}
-
-// File input listeners
-['ipa','prov','p12'].forEach(function(k){
-  document.getElementById('s_'+k).addEventListener('change',function(){
-    document.getElementById('s_'+k+'_name').textContent=this.files[0]?this.files[0].name:'No file chosen';
-  });
-});
-
-async function signerSubmit(){
-  var ipa=document.getElementById('s_ipa').files[0];
-  var prov=document.getElementById('s_prov').files[0];
-  var p12=document.getElementById('s_p12').files[0];
-  var pw=document.getElementById('s_pw').value;
-  if(!ipa||!prov||!p12||!pw){alert('Please fill in all required fields.');return;}
-  var fd=new FormData();
-  fd.append('ipa',ipa);
-  fd.append('mobileprovision',prov);
-  fd.append('p12',p12);
-  fd.append('password',pw);
-  fd.append('injectSideloadKeychain',document.getElementById('s_ck1').checked);
-  fd.append('injectPluginsInject',document.getElementById('s_ck2').checked);
-  var btn=document.getElementById('s_submit');
-  btn.textContent='Uploading...';
-  btn.disabled=true;
-  try{
-    var res=await fetch('/submit',{method:'POST',body:fd});
-    if(res.ok){
-      btn.textContent='Signing...';
-      var data=await res.json();
-      document.getElementById('s_result').innerHTML=
-        '<div class="signer-result">'+
-        '<div class="signer-result-title">Signing Complete</div>'+
-        '<div class="signer-result-btns">'+
-        '<a href="'+data.downloadUrl+'"><button class="btn">Download IPA</button></a>'+
-        '<a href="'+data.installUrl+'"><button class="btn btn-sec">Install</button></a>'+
-        '</div></div>';
-      btn.textContent='Done';
-    }else{throw new Error('Sign failed');}
-  }catch(e){
-    alert('Error signing IPA. Check your files and try again.');
-    btn.textContent='Upload & Sign';
-    btn.disabled=false;
-  }
 }
 
 var Y2K_SCRIPTS=[
